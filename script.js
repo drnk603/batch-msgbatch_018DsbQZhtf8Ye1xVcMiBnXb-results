@@ -6,9 +6,9 @@
     scrollOffset: 100,
     debounceDelay: 150,
     formSubmitDelay: 1000,
-    emailPattern: /^[^s@]+@[^s@]+.[^s@]+$/,
-    phonePattern: /^[ds+-()[]]{10,20}$/,
-    namePattern: /^[a-zA-ZÀ-ÿs-']{2,50}$/
+    emailPattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    phonePattern: /^[\d+\-()\[\]]{10,20}$/,
+    namePattern: /^[a-zA-ZÀ-ÿ\s-']{2,50}$/
   };
 
   class App {
@@ -576,7 +576,7 @@
 
     init() {
       this.counters.forEach(counter => {
-        const target = parseInt(counter.textContent.replace(/D/g, ''));
+        const target = parseInt(counter.textContent.replace(/\D/g, ''));
         const suffix = counter.textContent.replace(/[0-9]/g, '');
         
         if (target) {
